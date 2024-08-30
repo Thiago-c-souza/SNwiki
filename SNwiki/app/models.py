@@ -7,8 +7,11 @@ class rotinas(models.Model):
     N_rotina = models.CharField(max_length=6)
     Nome_rotina = models.CharField(max_length=50)
 
+    def __str__(self) -> str:
+        return self.N_rotina +" "+"-"+" "+ self.Nome_rotina
+
 class Post(models.Model):
     Titulo = models.CharField(max_length=255)
     rotina = models.ForeignKey(rotinas, on_delete=models.PROTECT)
-    Resumo = RichTextField()
+    Resumo = RichTextUploadingField()
     
