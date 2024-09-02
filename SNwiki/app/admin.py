@@ -6,3 +6,4 @@ from . import models
 
 admin.site.register(models.Post)
 admin.site.register(models.rotinas)
+admin.site.register(models.Tipo_erro)

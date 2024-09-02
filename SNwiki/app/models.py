@@ -9,9 +9,18 @@ class rotinas(models.Model):
 
     def __str__(self) -> str:
         return self.N_rotina +" "+"-"+" "+ self.Nome_rotina
+class Tipo_erro(models.Model):
+    Titulo = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return self.Titulo
+    
 class Post(models.Model):
     Titulo = models.CharField(max_length=255)
     rotina = models.ForeignKey(rotinas, on_delete=models.PROTECT)
+    Tipo_erro = models.ForeignKey(Tipo_erro, on_delete=models.PROTECT)
     Resumo = RichTextUploadingField()
     
+    
+    def __str__(self) -> str:
+        return self.Titulo
