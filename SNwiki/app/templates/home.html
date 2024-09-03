@@ -19,13 +19,42 @@ header {
     background: linear-gradient(#080147, #048ddd);
     color: white;
     padding: 10px 0;
-    text-align: center;
+    text-align: left; /* Alinha o conteúdo à esquerda */
+    display: flex;
+    align-items: center; /* Alinha verticalmente o conteúdo */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
 }
 
 header .logo img {
-    margin: 0;
+    margin-right: 10px;
     width: 125px;
     height: 125px;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header .logo h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header .logo h1, header .logo h2 {
+    line-height: 1; /* Garante que o espaçamento entre as linhas seja pequeno */
+}
+
+header .logo h1 {
+    margin-bottom: 5px;
+}
+
+header .logo h2 {
+    margin-top: 5px;
 }
 
 header nav ul {
@@ -34,16 +63,9 @@ header nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-grow: 1;
 }
 
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
 
 main {
     display: flex;
@@ -84,9 +106,14 @@ footer p {
 <body>
     <header>
         <div class="logo">
-            <img src="{% static 'img/snwiki.png' %}" alt="">
+            <img src="{% static 'img/thiago3.png' %}" alt="">
+            <div class="text">
+                <h1>SN</h1>
+                <h2>WIKI</h2>
+            </div>
         </div>
     </header>
+    
     
     <main>
 {% block main %}
