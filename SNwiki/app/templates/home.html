@@ -87,8 +87,9 @@ footer p {
             <img src="{% static 'img/snwiki.png' %}" alt="">
         </div>
     </header>
-
+    
     <main>
+{% block main %}
         <article>
             <h2>Title of the Article</h2>
             <p>This is a paragraph of the article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor lectus eget urna varius, eget volutpat nisl accumsan.</p>
@@ -98,15 +99,17 @@ footer p {
             <p>Another paragraph of content. Vivamus luctus interdum nisi, sed dignissim leo bibendum ut. Donec eget mi vitae sapien fermentum feugiat.</p>
             
         </article>
-
+{% endblock %}
+{% block side %}
         <aside>
             <h3>Table of Contents</h3>
             <ul>
-                <li><a href="#">Section 1</a></li>
-                <li><a href="#">Section 2</a></li>
-                <li><a href="#">Section 3</a></li>
+                {% for rotina in rotina %}
+                <li><a href="{% url 'post' rotina.N_rotina %}">{{ rotina.N_rotina }} - {{ rotina.Nome_rotina }}</a></li>
+                {% endfor %}
             </ul>
         </aside>
+{% endblock %}
     </main>
 
     <footer>

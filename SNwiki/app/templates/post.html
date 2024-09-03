@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+{% block main %}
+{% for post in post %}
+<article>
+    <h2><a href="{% url 'post_detail' post.id %}">{{ post.Titulo }}</a></h2>
+    <hr style="border: 1px solid #ccc;">
+</article>
+
+{% endfor %}
+{% endblock %}
