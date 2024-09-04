@@ -84,9 +84,19 @@ aside h3{
     text-align: center;
 }
 
+aside li{
+    margin-top: 15px;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do texto ao redor */
+}
+
 article {
     flex: 3;
 }
+
 
 footer {
     background:linear-gradient(#048ddd, #080147);;
@@ -119,17 +129,12 @@ footer p {
 {% block main %}
         <article>
             <h2>Title of the Article</h2>
-            <p>This is a paragraph of the article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor lectus eget urna varius, eget volutpat nisl accumsan.</p>
-            <p>Another paragraph of content. Vivamus luctus interdum nisi, sed dignissim leo bibendum ut. Donec eget mi vitae sapien fermentum feugiat.</p>
             <h2>Title of the Article</h2>
-            <p>This is a paragraph of the article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor lectus eget urna varius, eget volutpat nisl accumsan.</p>
-            <p>Another paragraph of content. Vivamus luctus interdum nisi, sed dignissim leo bibendum ut. Donec eget mi vitae sapien fermentum feugiat.</p>
-            
         </article>
 {% endblock %}
 {% block side %}
         <aside>
-            <h3>Table of Contents</h3>
+            <h3>Rotinas</h3>
             <ul>
                 {% for rotina in rotina %}
                 <li><a href="{% url 'post' rotina.N_rotina %}">{{ rotina.N_rotina }} - {{ rotina.Nome_rotina }}</a></li>
@@ -140,7 +145,7 @@ footer p {
     </main>
 
     <footer>
-        <p>&copy; 2024 Wiki Clone. All rights reserved.</p>
+        <p>&copy; 2024 SNWiki. All rights reserved.</p>
     </footer>
 </body>
 </html>
