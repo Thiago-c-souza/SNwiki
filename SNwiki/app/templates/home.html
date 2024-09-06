@@ -10,18 +10,19 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    
+    background-color: #2d2b3f;
+    color: aliceblue;
 }
 
 
 header {
-    background: linear-gradient(#080147, #048ddd);
+    background: linear-gradient(#048ddd, #2d2b3f);
     color: white;
     padding: 10px 0;
-    text-align: left; /* Alinha o conteúdo à esquerda */
+    text-align: left;
     display: flex;
-    align-items: center; /* Alinha verticalmente o conteúdo */
+    align-items: center;
+    margin-bottom: 80px;
 }
 
 header .logo {
@@ -46,7 +47,7 @@ header .logo h2 {
 }
 
 header .logo h1, header .logo h2 {
-    line-height: 1; /* Garante que o espaçamento entre as linhas seja pequeno */
+    line-height: 1; 
 }
 
 header .logo h1 {
@@ -69,15 +70,15 @@ header nav ul {
 
 main {
     display: flex;
-    flex-direction: row-reverse; /* Inverte a ordem dos elementos */
+    flex-direction: row-reverse;
     margin: 20px;
 }
 
 aside {
-    flex: 1;
-    background-color: #048ddd6b;
-    padding: 10px;
-    margin: 20px;
+    flex: 0.5;
+    padding-right: 40px;
+    margin-right: 20px;
+    border-right: 2px solid black;
 }
 
 aside h3{
@@ -85,21 +86,25 @@ aside h3{
 }
 
 aside li{
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 a {
-    text-decoration: none; /* Remove o sublinhado */
-    color: inherit; /* Herda a cor do texto ao redor */
+    text-decoration: none;
+    color: inherit;
 }
 
 article {
     flex: 3;
 }
 
+article hr {
+    border: 1px solid #ccc;
+}
+
 
 footer {
-    background:linear-gradient(#048ddd, #080147);;
+    background:linear-gradient(#2d2b3f, #048ddd);;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -115,21 +120,23 @@ footer p {
 </head>
 <body>
     <header>
-        <div class="logo">
+        <a href="{% url 'home' %}"><div class="logo">
             <img src="{% static 'img/thiago3.png' %}" alt="">
             <div class="text">
                 <h1>SN</h1>
                 <h2>WIKI</h2>
             </div>
-        </div>
+        </div></a>
     </header>
     
     
     <main>
 {% block main %}
         <article>
-            <h2>Title of the Article</h2>
-            <h2>Title of the Article</h2>
+            {% for post in post %}
+            <h2><a href="{% url 'post_detail' post.id %}">{{ post.Titulo }}</a></h2>
+            <hr>
+            {% endfor %}
         </article>
 {% endblock %}
 {% block side %}

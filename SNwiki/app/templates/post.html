@@ -4,7 +4,7 @@
 <article>
     {% for post in post %}
     <h2><a href="{% url 'post_detail' post.id %}">{{ post.Titulo }}</a></h2>
-    <hr style="border: 1px solid #ccc;">
+    <hr>
     {% endfor %}
 </article>
 
